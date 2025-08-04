@@ -1,19 +1,22 @@
 /* ======================================
-   Global Reset & Body 
+   Global Reset & Body
 ====================================== */
 * {
-  height: 100%;
   margin: 0;
   padding: 0;
-  margin-bottom: 500px;
   box-sizing: border-box;
+}
+
+html, body {
+  height: 100%; /* यह ज़रूरी है ताकि body की height viewport के बराबर हो */
+  scroll-behavior: smooth;
 }
 
 body {
   background: #f4f4f4;
   color: #333;
   font-family: 'Poppins', sans-serif;
-  scroll-behavior: smooth;
+  margin-bottom: 500px; /* Footer की height के बराबर space बनाता है */
 }
 
 .main-content-wrapper {
@@ -252,6 +255,11 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute; 
+  left: 50%; 
+  top: 50%; 
+  transform: translate(-50%, -50%); 
+  will-change: transform;
 }
 
 .service-card {
@@ -266,7 +274,7 @@ header {
   width: 320px;
   height: auto;
   min-height: 280px;
-  position: relative;
+  position: absolute ;
   left: 50%;
   top: 50%;
   transform-origin: center;
@@ -980,6 +988,7 @@ blockquote {
   z-index: 1;
   background: #111;
   color: #fff;
+  padding-top: 80px;
 }
 
 .footer-wave {
