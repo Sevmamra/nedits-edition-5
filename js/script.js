@@ -287,6 +287,47 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// NEW FUNCTION FOR FIXED FOOTER
+function setupFixedFooter() {
+  const footer = document.querySelector('.site-footer');
+  const mainContent = document.querySelector('.main-content');
+  
+  if (!footer || !mainContent) return;
+  
+  // Update padding based on footer height
+  const updatePadding = () => {
+    const footerHeight = footer.offsetHeight;
+    mainContent.style.paddingBottom = `${footerHeight + 50}px`;
+  };
+  
+  // Auto-hide footer when scrolling down on mobile
+  let lastScroll = 0;
+  const handleScroll = () => {
+    if (window.innerWidth >= 768) return;
+    
+    const currentScroll = window.scrollY;
+    if (currentScroll > lastScroll && currentScroll > 100) {
+      footer.classList.add('hidden');
+    } else {
+      footer.classList.remove('hidden');
+    }
+    lastScroll = currentScroll;
+  };
+  
+  // Initialize
+  updatePadding();
+  window.addEventListener('resize', debounce(updatePadding, 200));
+  window.addEventListener('scroll', throttle(handleScroll, 200));
+}
+
+// Call this function when page loads
+document.addEventListener('DOMContentLoaded', function() {
+  // ... your existing code ...
+  
+  // Add this line at the end of DOMContentLoaded
+  setupFixedFooter();
+});
+
 // Testimonials Carousel Function
 function initTestimonialsCarousel() {
   const carousel = document.querySelector('.testimonials-carousel');
@@ -472,3 +513,4 @@ function animateCounter(elementId, target, duration) {
   
   requestAnimationFrame(updateCounter);
 }
+
