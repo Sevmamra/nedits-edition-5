@@ -925,7 +925,7 @@ blockquote {
   height: 18px;
 }
 
-.footer-wave {
+.contact-wave {
   position: absolute;
   bottom: -100px;
   left: 0;
@@ -934,7 +934,7 @@ blockquote {
   z-index: 0;
 }
 
-.footer-wave svg {
+.contact-wave svg {
   width: 100%;
   height: 100%;
   display: block;
