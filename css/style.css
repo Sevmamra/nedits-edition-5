@@ -1256,6 +1256,56 @@ blockquote {
   }
 }
 
+/* ===== NEW FIXED FOOTER STYLES ===== */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+.main-content {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 400px; /* Creates space for footer */
+}
+
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: #111;
+  padding-top: 80px;
+}
+
+.footer-wave {
+  top: -80px; /* Changed from -100px */
+  height: 80px; /* Changed from 100px */
+}
+
+/* Adjust contact section spacing */
+.contact-section {
+  padding-bottom: 150px !important;
+}
+
+/* Mobile behavior */
+@media (max-width: 767px) {
+  .site-footer {
+    transition: transform 0.3s ease;
+  }
+  
+  .site-footer.hidden {
+    transform: translateY(100%);
+  }
+  
+  .main-content {
+    padding-bottom: 350px;
+  }
+}
+
 /* ======================================
    AOS Animations
 ====================================== */
