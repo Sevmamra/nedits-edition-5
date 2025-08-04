@@ -992,7 +992,7 @@ blockquote {
 }
 
 .footer-wave {
-  position: relative;
+  position: absolute;
   top: -100px;
   left: 0;
   width: 100%;
